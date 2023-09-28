@@ -9,7 +9,7 @@ export const metadata = {
     default: 'Home Page | Crystal Cleer',
     template: '%s | Crystal Cleer',
   },
-  description: 'The Premium Water',
+  description: 'The Premium Air',
 };
 
 export default function RootLayout({ children }) {
@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
           <Link href="/">Home</Link>
           <Link href="/products">Buy Cleer</Link>
           <Link href="/about">About Cleer</Link>
+          <Link href="/cart">Cart</Link>
         </nav>
         {children}
       </body>

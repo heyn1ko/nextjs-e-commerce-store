@@ -1,17 +1,22 @@
 * {
-  margin: 0;
-  padding: 0;
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
 }
 
 body {
-  background: rgb(212, 255, 255);
-  font-family: ;
+  margin: 50;
+  background: rgb(217, 237, 237);
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(47, 48, 90);
 }
 
 nav {
   width: 100vw;
   height: 4rem;
-  background: rgb(220, 217, 255);
+  background: rgb(217, 237, 237);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -19,4 +24,9 @@ nav {
   > div a {
     margin: 4px;
   }
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
