@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getProduct, getProducts } from '../../../database/products';
+import { getProduct } from '../../../database/products';
 
 export function generateMetadata({ params }) {
   const singleProduct = getProduct(Number(params.productId));
@@ -17,19 +17,23 @@ export default function productPage(props) {
     <div>
       <h1>{singleProduct.name}</h1>
       <p>
-        750ml
+        Year : {singleProduct.year}
         <br />
-        Price:{singleProduct.price} euros
+        Designer : {singleProduct.designer}
+        <br />
+        Origin : {singleProduct.origin}
+        <br />
+        Price:{singleProduct.price} {singleProduct.currency}
       </p>
       <button>Add to Cart</button>
       <br />
-      <input type="number" required={true} min="0" />
+      <input type="number" required={true} min="1" />
       <br />
       <Image
-        src={`/images/${singleProduct.name}.png`}
+        src={`/images/${singleProduct.name}.jpg`}
         alt={singleProduct.name}
-        width={500}
-        height={500}
+        width={324.1}
+        height={448}
       />
     </div>
   );

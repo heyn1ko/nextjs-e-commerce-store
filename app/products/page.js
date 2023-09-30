@@ -13,10 +13,10 @@ export default function Cleer() {
             <Link href={`/products/${product.id}`}>{product.name}</Link>
             <br />
             <Image
-              src={`/images/${product.name}.png`}
+              src={`/images/${product.name}.jpg`}
               alt={product.name}
-              width={300}
-              height={300}
+              width={231.5}
+              height={320}
             />
           </div>
         );

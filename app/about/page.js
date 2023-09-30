@@ -3,5 +3,5 @@ export const metadata = {
   description: 'The Premium Water',
 };
 export default function AboutPage() {
-  return <h1>About Cleer, about air</h1>;
+  return <h1>About Cleer</h1>;
 }
