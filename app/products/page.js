@@ -7,14 +7,16 @@ export default function Cleer() {
   return (
     <main>
       <h1>Products</h1>
-      {products.map((product) => {
+      {products.map((singleProduct) => {
         return (
-          <div key={`product-div-${product.id}`}>
-            <Link href={`/products/${product.id}`}>{product.name}</Link>
+          <div key={`product-div-${singleProduct.id}`}>
+            <Link href={`/products/${singleProduct.id}`}>
+              {singleProduct.name}
+            </Link>
             <br />
             <Image
-              src={`/images/${product.name}.jpg`}
-              alt={product.name}
+              src={`/images/${singleProduct.name}.jpg`}
+              alt={singleProduct.name}
               width={231.5}
               height={320}
             />

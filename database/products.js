@@ -43,6 +43,6 @@ export function getProducts() {
   return products;
 }
 
-export function getProduct(id) {
+export function getProductById(id) {
   return products.find((product) => product.id === id);
 }

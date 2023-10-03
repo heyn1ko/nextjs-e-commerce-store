@@ -6,10 +6,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: {
-    default: 'Home Page | Crystal Cleer',
-    template: '%s | Crystal Cleer',
+    default: 'Home Page | Cleer',
+    template: '%s | Cleer',
   },
-  description: 'The Premium Air',
+  description: 'Curated Interior Finds',
 };
 
 export default function RootLayout({ children }) {

@@ -30,3 +30,7 @@ a {
   text-decoration: none;
   color: #000;
 }
+
+input {
+  width: 40px;
+}

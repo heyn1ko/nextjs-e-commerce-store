@@ -1,37 +1,31 @@
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { getProduct } from '../../../database/products';
+import { getProductById } from '../../../database/products';
+import AddToCartButton from './AddToCartButton';
 
-export function generateMetadata({ params }) {
-  const singleProduct = getProduct(Number(params.productId));
-  return {
-    title: singleProduct ? singleProduct.name : '',
-  };
-}
-export default function productPage(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
-  if (!singleProduct) {
-    return notFound();
-  }
+export default async function singleProductPage(props) {
+  const product = await getProductById(Number(props.params.productId));
+  console.log('soemthing', props.params.productId);
+
   return (
     <div>
-      <h1>{singleProduct.name}</h1>
+      <h1>{product.name}</h1>
       <p>
-        Year : {singleProduct.year}
+        Year : {product.year}
         <br />
-        Designer : {singleProduct.designer}
+        Designer : {product.designer}
         <br />
-        Origin : {singleProduct.origin}
+        Origin : {product.origin}
         <br />
-        Price:{singleProduct.price} {singleProduct.currency}
+        Price:{product.price} {product.currency}
       </p>
-      <button>Add to Cart</button>
       <br />
-      <input type="number" required={true} min="1" />
+      <AddToCartButton productId={product.id} />
       <br />
+      <br />
+
       <Image
-        src={`/images/${singleProduct.name}.jpg`}
-        alt={singleProduct.name}
+        src={`/images/${product.name}.jpg`}
+        alt={product.name}
         width={324.1}
         height={448}
       />
