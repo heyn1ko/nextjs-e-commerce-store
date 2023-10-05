@@ -2,9 +2,8 @@ import Image from 'next/image';
 import { getProductById } from '../../../database/products';
 import AddToCartButton from './AddToCartButton';
 
-export default async function singleProductPage(props) {
+export default async function SingleProductPage(props) {
   const product = await getProductById(Number(props.params.productId));
-  console.log('soemthing', props.params.productId);
 
   return (
     <div>
@@ -19,7 +18,10 @@ export default async function singleProductPage(props) {
         Price:{product.price} {product.currency}
       </p>
       <br />
-      <AddToCartButton productId={product.id} />
+      <AddToCartButton
+        productId={product.id}
+        data-test-id="product-add-to-cart"
+      />
       <br />
       <br />
 

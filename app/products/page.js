@@ -10,16 +10,19 @@ export default function Cleer() {
       {products.map((singleProduct) => {
         return (
           <div key={`product-div-${singleProduct.id}`}>
-            <Link href={`/products/${singleProduct.id}`}>
-              {singleProduct.name}
+            <Link
+              href={`/products/${singleProduct.id}`}
+              data-test-id="product-<product id>"
+            >
+              <h1> {singleProduct.name} </h1>
+              <br />
+              <Image
+                src={`/images/${singleProduct.name}.jpg`}
+                alt={singleProduct.name}
+                width={231.5}
+                height={320}
+              />
             </Link>
-            <br />
-            <Image
-              src={`/images/${singleProduct.name}.jpg`}
-              alt={singleProduct.name}
-              width={231.5}
-              height={320}
-            />
           </div>
         );
       })}

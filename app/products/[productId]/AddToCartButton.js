@@ -13,7 +13,7 @@ export default function AddToCartButton(props) {
         min="1"
         value={quantity}
         onChange={(event) => {
-          setQuantity(event.currentTarget.value);
+          setQuantity(Number(event.currentTarget.value));
         }}
       />
       <button

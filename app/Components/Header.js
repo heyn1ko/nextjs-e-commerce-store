@@ -1,8 +1,9 @@
+import Link from 'next/link';
 import { getProducts } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 
-export default function Cart() {
+export default function Header() {
   // GET PRODUCTS
   const products = getProducts();
   // GET/CREATE THE COOKIE
@@ -25,42 +26,29 @@ export default function Cart() {
     };
   });
   // FILTER AND FIND ITEMS WITH QUANTITY IN ORDER TO DISPLAY
-  const allProductsThatWereAddedToTheCart = productsWithQuantity.filter(
-    (item) => {
-      return item.quantity !== undefined;
-    },
-  );
-
-  if (allProductsThatWereAddedToTheCart.length === 0) {
-    console.log('No Items In Your Cart');
-  }
-  // CALCULATE TOTAL QUANTITY
+  // const allProductsThatWereAddedToTheCart = productsWithQuantity.filter(
+  //   (item) => {
+  //     return item.quantity !== undefined;
+  //   },
+  // );
+  // UPDATE CART WITH TOTAL QUANTITY?
   // const sumWithInitial = array1.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
   const totalQuantity = productsWithQuantity.reduce(
     (acc, item) => acc + (item.quantity || 0),
     0,
   );
-  // CALCULATE TOTAL PRICE
-  const totalPrice = productsWithQuantity.reduce((acc, item) => {
-    const itemPrice = item.price || 0;
-    return acc + (item.quantity || 0) * itemPrice;
-  }, 0);
   return (
-    <>
-      <h1>My shopping cart</h1>
-      {productsWithQuantity
-        .filter((product) => product.quantity >= 1)
-        .map((product) => (
-          <div key={product.id}>
-            <h3>{product.name}</h3>
-            <p>Quantity: {product.quantity}</p>
-            <p>Price: {product.price}</p>
-          </div>
-        ))}
-      <p>
-        Total Quantity: {totalQuantity}
-        Total Price: {totalPrice}
-      </p>
-    </>
+    <div>
+      <nav>
+        <Link href="/">Home</Link>
+        <Link href="/products" data-test-id="products-link">
+          Products
+        </Link>
+        <Link href="/about">About Cleer</Link>
+        <Link href="/cart">
+          Cart {totalQuantity > 0 && <span>({totalQuantity})</span>}
+        </Link>
+      </nav>
+    </div>
   );
 }
