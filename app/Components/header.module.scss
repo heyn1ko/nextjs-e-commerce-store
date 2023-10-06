@@ -1,0 +1,17 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  background-color: black;
+  padding: 50px;
+  border: 20px solid #000000;
+  border-color: beige;
+  justify-content: space-between;
+
+  a {
+    font-style: none;
+    color: rgb(255, 255, 255);
+    display: flex;
+    gap: 30px; /* Adjust the gap between links as needed */
+  }
+}

@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { getProducts } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
+import styles from './page.module.scss';
 
 export default function Cart() {
   // GET PRODUCTS
@@ -46,7 +48,7 @@ export default function Cart() {
     return acc + (item.quantity || 0) * itemPrice;
   }, 0);
   return (
-    <>
+    <div className={styles.cart}>
       <h1>My shopping cart</h1>
       {productsWithQuantity
         .filter((product) => product.quantity >= 1)
@@ -57,10 +59,16 @@ export default function Cart() {
             <p>Price: {product.price}</p>
           </div>
         ))}
-      <p>
+      <div>
         Total Quantity: {totalQuantity}
         Total Price: {totalPrice}
-      </p>
-    </>
+      </div>
+
+      <Link href="/checkout">
+        <div>
+          <button data-test-id="cart-checkout">Proceed to Checkout</button>
+        </div>
+      </Link>
+    </div>
   );
 }

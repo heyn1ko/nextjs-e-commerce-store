@@ -16,13 +16,15 @@ export default function AddToCartButton(props) {
           setQuantity(Number(event.currentTarget.value));
         }}
       />
-      <button
-        onClick={async () =>
-          await createOrUpdateQuantity(props.productId, quantity)
-        }
-      >
-        Add To Cart
-      </button>
+      <div>
+        <button
+          onClick={async () =>
+            await createOrUpdateQuantity(props.productId, quantity)
+          }
+        >
+          Add To Cart
+        </button>
+      </div>
     </div>
   );
 }

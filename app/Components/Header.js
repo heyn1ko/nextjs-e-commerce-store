@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { getProducts } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
+import styles from './header.module.scss';
 
 export default function Header() {
   // GET PRODUCTS
@@ -38,16 +40,27 @@ export default function Header() {
     0,
   );
   return (
-    <div>
+    <div className={styles.header}>
       <nav>
-        <Link href="/">Home</Link>
-        <Link href="/products" data-test-id="products-link">
-          Products
-        </Link>
-        <Link href="/about">About Cleer</Link>
-        <Link href="/cart">
-          Cart {totalQuantity > 0 && <span>({totalQuantity})</span>}
-        </Link>
+        <div>
+          <Image
+            src="/images/Logo.png"
+            width={100}
+            height={30}
+            alt="Picture of the author"
+          />
+        </div>
+        <br />
+        <div>
+          <Link href="/">Home</Link>
+          <Link href="/products" data-test-id="products-link">
+            Products
+          </Link>
+          <Link href="/about">About Cleer</Link>
+          <Link href="/cart">
+            Cart {totalQuantity > 0 && <span>({totalQuantity})</span>}
+          </Link>
+        </div>
       </nav>
     </div>
   );
