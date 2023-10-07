@@ -1,9 +1,12 @@
-.cart {
-  display: grid;
-  // justify-content: space-around;
+.checkout {
   padding: 20px 50px;
-  h1 {
-    padding: 20px 50px;
+
+  // display: grid;
+  // grid-template-columns: 2fr 10fr;
+  input {
+    width: 150px;
+    height: 20px;
+    border-radius: 9px;
   }
   button {
     font-size: 15px;

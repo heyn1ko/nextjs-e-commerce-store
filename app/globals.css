@@ -6,19 +6,16 @@
 }
 
 body {
-  margin: 50;
+  /* margin: 20px 50px; */
   background: rgb(220, 211, 192);
   display: block;
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(0, 0, 0);
   border: 20px solid #e5e1e1;
+  min-height: 100vh;
 }
 
 a {
   text-decoration: none;
   color: #000;
-}
-
-input {
-  width: 40px;
 }

@@ -4,14 +4,40 @@
   align-items: center;
   background-color: black;
   padding: 50px;
-  border: 20px solid #000000;
-  border-color: beige;
+  border: 20px solid rgb(255, 150, 150);
+  // border-color: beige;
   justify-content: space-between;
 
   a {
     font-style: none;
     color: rgb(255, 255, 255);
     display: flex;
-    gap: 30px; /* Adjust the gap between links as needed */
+    // gap: 30px; /* Adjust the gap between links as needed */
+    &:hover {
+      color: rgb(255, 150, 150);
+    }
   }
+}
+.logo {
+  flex: 0 0 auto;
+  margin-right: 5px; /* Add margin to the logo */
+}
+.navLinks {
+  position: relative;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  padding-left: 0;
+  // align-items: center;
+}
+
+.cartLink span {
+  position: absolute;
+  top: -30px; /* Adjust vertical position as needed */
+  right: -10px; /* Adjust horizontal position as needed */
+  background-color: #f2e3d4;
+  color: #3f0202;
+  padding: 4px 8px;
+  border-radius: 20%;
+  font-size: 12px;
 }

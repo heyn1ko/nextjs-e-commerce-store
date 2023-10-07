@@ -41,27 +41,24 @@ export default function Header() {
   );
   return (
     <div className={styles.header}>
-      <nav>
-        <div>
-          <Image
-            src="/images/Logo.png"
-            width={100}
-            height={30}
-            alt="Picture of the author"
-          />
-        </div>
-        <br />
-        <div>
-          <Link href="/">Home</Link>
-          <Link href="/products" data-test-id="products-link">
-            Products
-          </Link>
-          <Link href="/about">About Cleer</Link>
-          <Link href="/cart">
-            Cart {totalQuantity > 0 && <span>({totalQuantity})</span>}
-          </Link>
-        </div>
-      </nav>
+      <div className={styles.logo}>
+        <Image
+          src="/images/Logo.png"
+          width={100}
+          height={30}
+          alt="Picture of the author"
+        />
+      </div>
+      <div className={styles.navLinks}>
+        <Link href="/">Home</Link>
+        <Link href="/products" data-test-id="products-link">
+          Products
+        </Link>
+        <Link href="/about">About Cleer</Link>
+        <Link href="/cart" className={styles.cartLink}>
+          Cart {totalQuantity > 0 && <span>({totalQuantity})</span>}
+        </Link>
+      </div>
     </div>
   );
 }
