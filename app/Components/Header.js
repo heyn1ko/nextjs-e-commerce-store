@@ -5,9 +5,9 @@ import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 import styles from './header.module.scss';
 
-export default function Header() {
+export default async function Header() {
   // GET PRODUCTS
-  const products = getProducts();
+  const products = await getProducts();
   // GET/CREATE THE COOKIE
   const cartCookieThatIncludesProductCookie = getCookie('cart');
   // PARSE THE COOKIE,

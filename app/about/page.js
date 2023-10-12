@@ -6,8 +6,10 @@ export const metadata = {
 };
 export default function AboutPage() {
   return (
-    <div className={styles.about}>
-      <h1>About Cleer</h1>
-    </div>
+    <main>
+      <div className={styles.about}>
+        <h1>About Cleer</h1>
+      </div>
+    </main>
   );
 }
