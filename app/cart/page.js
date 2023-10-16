@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { getProducts } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
-// import RemoveButton from '../Components/RemoveButton';
 import styles from './page.module.scss';
+import RemoveButton from './RemoveButton';
 
 export default async function Cart() {
   // GET PRODUCTS
@@ -55,33 +55,31 @@ export default async function Cart() {
           <h1>My shopping cart</h1>
         </div>
         <div>
-          <p>
-            {productsWithQuantity
-              .filter((product) => product.quantity >= 1)
-              .map((product) => (
-                <div key={product.id}>
-                  <h3>{product.name}</h3>
-                  <div>Quantity: {product.quantity}</div>
-                  <div>Price: {product.price}</div>
-                  <br />
-                  {/* <button>remove</button> */}
-                </div>
-              ))}
-          </p>
+          {productsWithQuantity
+            .filter((product) => product.quantity >= 1)
+            .map((product) => (
+              <div key={product.id}>
+                <h3>{product.name}</h3>
+                <div>Quantity: {product.quantity}</div>
+                <div>Price: {product.price}</div>
+                <br />
+                <RemoveButton id={product.id} />
+              </div>
+            ))}
         </div>
         <br />
         <br />
 
-        <div>
+        <div data-test-id="cart-product-quantity-<product id>">
           Total Quantity: {totalQuantity}
-          Total Price: {totalPrice}
         </div>
+        <div data-test-id="cart-total">Total Price: {totalPrice}</div>
         <br />
 
         <div>
           <Link href="/checkout">
-            <div>
-              <button data-test-id="cart-checkout">Proceed to Checkout</button>
+            <div data-test-id="cart-checkout">
+              <button>Proceed to Checkout</button>
             </div>
           </Link>
         </div>

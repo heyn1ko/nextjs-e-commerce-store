@@ -24,6 +24,7 @@ declare module globalThis {
 
 //   return globalThis.postgresSqlClient;
 // }
+// FUNCTION TO TRANSFORM FROM AND TO CAMELCASE / BETWEEN TYPESCRIPT AND DATABASE
 function connectOneTimeToDatabase() {
   if (!('postgresSqlClient' in globalThis)) {
     globalThis.postgresSqlClient = postgres({

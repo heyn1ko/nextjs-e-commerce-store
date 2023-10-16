@@ -1,12 +1,16 @@
 .checkout {
   padding: 20px 50px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  align-items: center;
 
   // display: grid;
   // grid-template-columns: 2fr 10fr;
   input {
-    width: 150px;
-    height: 20px;
+    width: 700px;
+    height: 40px;
     border-radius: 9px;
+    margin: 5px;
   }
   button {
     font-size: 15px;
@@ -16,5 +20,6 @@
     background-color: azure;
     padding-left: 15px;
     padding-right: 15px;
+    width: 150px;
   }
 }

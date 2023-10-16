@@ -2,11 +2,11 @@ import 'server-only';
 import { cache } from 'react';
 import { sql } from './connect';
 
-type Product = {
+export type Product = {
   id: number;
   name: string;
-  year: string | null;
-  price: string | null;
+  year: number | null;
+  price: number | null;
   designer: string | null;
   origin: string | null;
 };
